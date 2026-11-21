@@ -1,0 +1,134 @@
+:root {
+  --turf: #0f2a17;
+  --turf-2: #153a20;
+  --line: rgba(255, 255, 255, 0.07);
+  --chalk: #f4f1e8;
+  --muted: #b9c7bb;
+  --gold: #f5b81f;
+  --gold-deep: #d9900f;
+  --pigskin: #8c4a22;
+  --pixel: "Press Start 2P", ui-monospace, monospace;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  background-color: var(--turf);
+  /* yard lines */
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 119px, var(--line) 119px 121px),
+    linear-gradient(180deg, var(--turf-2), var(--turf) 60%);
+  color: var(--chalk);
+  font: 17px/1.6 var(--body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a { color: var(--gold); }
+a:hover { color: #ffd45c; }
+
+.wrap { width: 100%; max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+/* header */
+.site-header { padding: 22px 0; }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.wordmark {
+  font-family: var(--pixel);
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: var(--chalk);
+  text-decoration: none;
+}
+.wordmark span { color: var(--gold); }
+.nav a { color: var(--muted); text-decoration: none; font-size: 15px; margin-left: 18px; }
+.nav a:hover { color: var(--chalk); }
+
+/* hero */
+.hero { padding: 48px 0 64px; flex: 1; }
+.hero .wrap { display: grid; grid-template-columns: 240px 1fr; gap: 44px; align-items: center; }
+.game-icon {
+  width: 240px; height: 240px;
+  border-radius: 48px;
+  image-rendering: pixelated;
+  box-shadow: 0 0 0 4px rgba(0,0,0,0.35), 0 18px 40px rgba(0,0,0,0.45);
+}
+.eyebrow {
+  display: inline-block;
+  font-family: var(--pixel);
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--turf);
+  background: var(--gold);
+  padding: 7px 10px 6px;
+  margin-bottom: 18px;
+}
+h1 {
+  font-family: var(--pixel);
+  font-size: 40px;
+  line-height: 1.25;
+  margin: 0 0 18px;
+  color: var(--chalk);
+  text-shadow: 4px 4px 0 var(--pigskin);
+}
+.lede { font-size: 19px; color: var(--muted); margin: 0 0 28px; max-width: 34em; }
+
+.buttons { display: flex; flex-wrap: wrap; gap: 14px; }
+.btn {
+  font-family: var(--pixel);
+  font-size: 12px;
+  text-decoration: none;
+  padding: 15px 18px 13px;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+.btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 #000; }
+.btn-primary { background: var(--gold); color: #1b1203; }
+.btn-primary:hover { background: #ffc93a; color: #1b1203; }
+.btn-ghost { background: transparent; color: var(--chalk); border-color: var(--chalk); box-shadow: 4px 4px 0 rgba(0,0,0,0.6); }
+.btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+/* features */
+.features { padding: 0 0 64px; }
+.features ul {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+}
+.features li {
+  background: rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  padding: 20px;
+}
+.features h2 { font-family: var(--pixel); font-size: 12px; color: var(--gold); margin: 0 0 10px; line-height: 1.5; }
+.features p { margin: 0; color: var(--muted); font-size: 15px; }
+
+/* prose pages (privacy) */
+.prose { padding: 24px 0 64px; flex: 1; }
+.prose .wrap { max-width: 720px; }
+.prose h1 { font-size: 24px; text-shadow: 3px 3px 0 var(--pigskin); }
+.prose h2 { font-family: var(--pixel); font-size: 13px; color: var(--gold); margin: 36px 0 10px; line-height: 1.5; }
+.prose p, .prose li { color: var(--muted); }
+.prose strong { color: var(--chalk); }
+.updated { font-size: 14px; color: var(--muted); }
+
+/* footer */
+.site-footer { border-top: 2px solid rgba(255,255,255,0.08); padding: 22px 0 28px; font-size: 14px; color: var(--muted); }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--chalk); }
+
+@media (max-width: 760px) {
+  .hero { padding-top: 20px; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 28px; text-align: center; justify-items: center; }
+  .game-icon { width: 168px; height: 168px; border-radius: 36px; }
+  h1 { font-size: 28px; }
+  .lede { font-size: 17px; }
+  .buttons { justify-content: center; }
+  .features ul { grid-template-columns: 1fr; }
+  .nav a { margin-left: 12px; font-size: 14px; }
+  .wordmark { font-size: 12px; }
+}
